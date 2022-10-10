@@ -1,0 +1,9 @@
+.popup__container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    width: 480px;
+    z-index: 7;
+    margin: auto;
+}
