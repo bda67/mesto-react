@@ -1,30 +1,12 @@
 import editButton from '../images/edit.svg';
 import addButton from '../images/add.svg';
-import cousteauAvatar from '../images/jacque-yves_cousteau.jpg';
-import api from "../utils/Api.js";
-import { useContext, useEffect, useState } from "react";
+import { useContext } from "react";
 import Card from './Card.js';
-import { CurrentUserContex } from '../contexts/CurrentUserContext';
+import { CurrentUserContext } from '../contexts/CurrentUserContext.js';
 
 function Main(props) {
-   /* const [userName, getUserName] = useState('dhfskj');
-    const [userAvatar, getUserAvatar] = useState(cousteauAvatar);
-    const [userDescription, getUserDescription] = useState('Я лох');
-    const [cards, getCards] = useState([]);
 
-    useEffect(() => {
-        Promise.all([api.getUserData(), api.getInitialCards()])
-        .then(([userData, cardsData]) => {
-            getUserName(userData.name);
-            getUserDescription(userData.about);
-            getUserAvatar(userData.avatar);
-            getCards(cardsData);
-        })
-        .catch((error) => {
-            console.log(error)
-        })
-    }, [])*/
-    const currentUser = useContext(CurrentUserContex);
+    const currentUser = useContext(CurrentUserContext);
 
     return(
         <main className="main">
@@ -47,9 +29,9 @@ function Main(props) {
             </section>
             <section className="elements">
                 <ul className="element">
-                    {cards.map(card => (
-                        <Card key={card._id} card={card} onCardClick={props.onCardClick} />
-                    ))};
+                    {props.cards.map((card) => (
+                        <Card key={card._id} card={card} onCardClick={props.onCardClick} onCardLike={props.onCardLike} onCardDelete={props.onCardDelete} />
+                    ))}
                 </ul>
             </section>
         </main>

@@ -53,22 +53,30 @@ createNewCard(data) {
         .then(this._getResponseServer)
 };
 
+changeLikeCardStatus(data, isLiked) {
+    if (!isLiked) {
+        return this.dislike(data);
+    } else {
+        return this.like(data);
+    }
+};
+
 like(data) {
-    return fetch(`${this._baseUrl}/cards/${data._id}/likes`, {
+    return fetch(`${this._baseUrl}/cards/${data}/likes`, {
         method: 'PUT',
         headers: this._headers
     })
         .then(this._getResponseServer)
 };
 dislike(data) {
-    return fetch(`${this._baseUrl}/cards/${data._id}/likes`, {
+    return fetch(`${this._baseUrl}/cards/${data}/likes`, {
          method: 'DELETE',
          headers: this._headers
     })
         .then(this._getResponseServer)
 };
-deleteIdCard(_id) {
-    return fetch(`${this._baseUrl}/cards/${_id}`, {
+deleteIdCard(data) {
+    return fetch(`${this._baseUrl}/cards/${data._id}`, {
         method: 'DELETE',
         headers: this._headers
     })
