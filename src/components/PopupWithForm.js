@@ -7,7 +7,7 @@ function PopupWithForm({name, title, children, onClose, isOpen, onSubmit, textBu
                 <button className="popup__button-close" type="button" onClick={onClose}>
                     <img className="popup__button-img" alt="крестик" src={closeIcon}/>
                 </button>
-                <form className={`popup__form popup__form_${name}`} name={name} onSubmit={onSubmit} noValidate>
+                <form className={`popup__form popup__form_${name}`} name={name} onSubmit={onSubmit}>
                         <h2 className="popup__title">{title}</h2>
                         {children}
                         <button className="popup__button-submit" type="submit">{textButton}</button>

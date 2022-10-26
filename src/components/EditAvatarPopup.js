@@ -10,6 +10,7 @@ function handleSubmit(e) {
     props.onUpdateAvatar({
         avatar: avatarRef.current.value
     });
+    e.target.reset()
 }
     return(<PopupWithForm name='avatar' title='Обновить аватар'
     isOpen={props.isOpen} onClose={props.onClose} onSubmit={handleSubmit}  textButton={props.isLoading ? "Сохранение..." : "Сохранить"}>
