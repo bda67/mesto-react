@@ -1,5 +1,5 @@
 import PopupWithForm from "./PopupWithForm";
-import { useRef} from 'react'; 
+import { useRef, useEffect } from 'react'; 
 
 function AddPlacePopup(props) {
     const nameRef = useRef();
@@ -13,6 +13,7 @@ function handleSubmit(e) {
     });
     e.target.reset()
 }
+
 
     return(
     <PopupWithForm name='add' title='Новое место'

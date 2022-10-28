@@ -12,6 +12,7 @@ function handleSubmit(e) {
     });
     e.target.reset()
 }
+
     return(<PopupWithForm name='avatar' title='Обновить аватар'
     isOpen={props.isOpen} onClose={props.onClose} onSubmit={handleSubmit}  textButton={props.isLoading ? "Сохранение..." : "Сохранить"}>
         <fieldset className="popup__profile-info popup__profile-info_avatar">    
